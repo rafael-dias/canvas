@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Canvas</title>
+</head>
+
+<body>
+    <!-- https://www.reddit.com/r/Discord_Bots/comments/9ip99a/can_you_upload_images_directly_with_a_webhook/ -->
+
+    <canvas id="myCanvas" width="250" height="250" style="border:1px solid #000000;">
+        Sorry, your browser doesn't support the &lt;canvas&gt; element.
+    </canvas>
+
+    <textarea id="resultado" id="" cols="30" rows="10"></textarea>
+    <script type="text/javascript">
+        function Dados() {
+            if (window.location.search != "") {
+                var dados = window.location.search.split("?")[0]
+                dados = dados.split('&')
+
+                var canvas = document.getElementById("myCanvas");
+                var ctx = canvas.getContext("2d");
+                ctx.fillStyle = "#FF0000";
+                ctx.fillRect(0, 0, 150, 75);
+                var dataURL = canvas.toDataURL("image/png");
+                // var ele = document.getElementById("resultado");
+                // ele.value = dataURL
+
+                dados = canvas.toBlob(function(blob) {}, 'image/wbmp');
+                console.log("[DADOS]: ", dados);
+
+                document.querySelector('body').innerText = dataURL
+                    // return dados
+
+            }
+        }
+        Dados()
+            // var canvas = document.getElementById("myCanvas");
+            // var ctx = canvas.getContext("2d");
+            // ctx.fillStyle = "#FF0000";
+            // ctx.fillRect(0, 0, 150, 75);
+            // var dataURL = canvas.toDataURL("image/png");
+            // var ele = document.getElementById("resultado");
+            // ele.value = dataURL
+    </script>
+
+</body>
+
+</html>
