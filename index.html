@@ -14,9 +14,9 @@
     <canvas id="myCanvas" width="250" height="250" style="border:1px solid #000000;">
         Sorry, your browser doesn't support the &lt;canvas&gt; element.
     </canvas>
-    
-    <li></li>
-
+    <table>
+    <td></td>
+    </table>
     <textarea id="resultado" id="" cols="30" rows="10"></textarea>
     <script type="text/javascript">
         function Dados() {
@@ -35,7 +35,7 @@
                 dados = canvas.toBlob(function(blob) {}, 'image/wbmp');
                 console.log("[DADOS]: ", dados);
 
-                document.querySelector('li').innerText = dataURL
+                document.querySelector('td').innerText = dataURL
                     // return dados
 
             }
